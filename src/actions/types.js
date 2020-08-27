@@ -1,3 +1,4 @@
 export const SELECTED = 'SELECTED';
 export const SELECT_QUESTION = 'SELECT_QUESTION';
 export const EVALUATE_ANSWER = 'EVALUATE_ANSWER';
+export const GET_QUESTIONS = 'GET_QUESTIONS';
