@@ -1,0 +1,15 @@
+.Question {
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.QuestionSingle {
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0 10rem 0 10rem;
+}
+
+.Ptag {
+    font-size: 1.3rem;
+    text-decoration: underline;
+}

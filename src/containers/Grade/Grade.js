@@ -1,10 +1,12 @@
 import React from 'react';
 
+import classes from './Grade.module.css';
+
 
 //Grade take props: remarks, grade, answer
 const Grade =(props) => {
     return (
-        <div>
+        <div className={classes.Grade}>
 
             <h1>Grade: {props.grade}</h1>
             <p>{props.remark}</p>
