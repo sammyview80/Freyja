@@ -1,8 +1,8 @@
-import { SELECTED } from './types';
+import { SELECT_QUESTION } from './types';
 
-export const selected = question => {
+export const selectQuestion = question => {
   return {
-    type: SELECTED,
+    type: SELECT_QUESTION,
     payload: question,
   }
-}
+};

@@ -1,1 +1,2 @@
 export const SELECTED = 'SELECTED';
+export const SELECT_QUESTION = 'SELECT_QUESTION';
