@@ -7,17 +7,19 @@ import Answer from './containers/Answer/Answer';
 import Grade from './containers/Grade/Grade';
 
 function App() {
-  const [questions , setQuestions] = useState(['What is you name?', 'What is your father name?', 'What is you mother name?']);
-  const [currentQuestion, setCurrentQuestion] = useState();  
-  const [answer, setAnswer] = useState('');
-  const [grade, setGrade] = useState();
+  const [questions , setQuestions] = useState(['What is you name?', 'What is your father name?', 'What is you mother name?']); // Array of questions
+  const [currentQuestion, setCurrentQuestion] = useState();  //current question state
+  const [answer, setAnswer] = useState(''); // User answer state
+  const [grade, setGrade] = useState(); // Grade result
   
   const singleQuestionHandler = (id) => {
+    // On click on the question we get id and render the question to dom
     let qs;
     qs = <Question id={id} questionText={questions[id]} />
-    setCurrentQuestion(qs)
+    setCurrentQuestion(qs) // updating the state of currentquestion
   }
   const inputAnswerHandler =(event) => {
+    // When ever the use enter the answer the answer state update
     let inputAnswer = event.target.value;
     setAnswer(inputAnswer);
   }
