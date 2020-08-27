@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SELECT_QUESTION, EVALUATE_QUESTION } from './types';
+import { SELECT_QUESTION, EVALUATE_ANSWER } from './types';
 
 const BASE_URL = '';
 
@@ -10,14 +10,15 @@ export const selectQuestion = question => {
   }
 };
 
-export const evaluateQuestion = (answer) => (dispatch) => {
-  axios.get(BASE_URL, answer)
-    .then(res => {
-      dispatch({
-        type: EVALUATE_QUESTION,
-        payload: res.data
-      });
-    }).catch(err => {
-      console.log(err);
-    });
+export const evaluateAnswer = (answer) => (dispatch) => {
+  console.log(answer);
+  // axios.get(BASE_URL, answer)
+  //   .then(res => {
+  //     dispatch({
+  //       type: EVALUATE_ANSWER,
+  //       payload: res.data
+  //     });
+  //   }).catch(err => {
+  //     console.log(err);
+  //   });
 };

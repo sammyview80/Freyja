@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import { selectQuestion } from '../../actions/selected';
 
-const Questions = ({ selectQuestion, selectedQuestion }) => {
+const Questions = ({ selectQuestion }) => {
   return (
     <div>
       <h5>Questions</h5>

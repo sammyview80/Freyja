@@ -1,4 +1,4 @@
-import { EVALUATE_QUESTION } from "../actions/types";
+import { EVALUATE_ANSWER } from "../actions/types";
 
 const initialState = {
   result: {},
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case EVALUATE_QUESTION:
+    case EVALUATE_ANSWER:
       return action.payload;
     default:
       return state;
