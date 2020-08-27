@@ -1,9 +1,19 @@
 .Answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0 10rem 0 10rem;
     color: red;
 }
 
-.input {
-    height: 400px;
-    width: 100px;
+input {
+    margin: 1rem 0rem 2rem 0rem;
+    background-color: grey;
+    border-radius: 10px;
+    height: 200px;
+    width: 800px;
+    text-align: start;
+    overflow-y: auto;
+    overflow-wrap: break-word;
 }

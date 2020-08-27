@@ -44,7 +44,7 @@ function Sam() {
 
 
   async function postAnswer() {
-    const index = questions.findIndex((qs) => qs === currentQuestion.props.questionText);
+    const index = questions.findIndex((qs) => qs === currentQuestion.props.questionText) + 1;
     const data =  await axios.post('http://127.0.0.1:8000/api/score/' + index + '/', {
       answer: answer
     }).then(response => {

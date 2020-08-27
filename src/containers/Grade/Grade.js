@@ -9,10 +9,10 @@ const Grade =(props) => {
         <div className={classes.Grade}>
 
             <h1>Grade: {props.grade}</h1>
-            <p>{props.remark}</p>
+            <p>Remarks: {props.remark}</p>
 
             <div>
-                <h1>Your Submission</h1>
+                <h1>Your Submission:</h1>
                 <p>{props.answer}</p>
             </div>
             
