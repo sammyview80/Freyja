@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { SELECT_QUESTION, EVALUATE_ANSWER } from './types';
-
-const BASE_URL = 'http://127.0.0.1:8000';
+import { SELECT_QUESTION } from './types';
 
 export const selectQuestion = question => {
   return {
