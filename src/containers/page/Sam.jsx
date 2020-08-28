@@ -22,6 +22,7 @@ function Sam() {
   const [showGrade, setShowGrade] = useState(false); // For showing the grade.
   const [responseGrade, setResponseGrade] = useState(Object());
   const [author, setAuthor] = useState(Array());
+  const [date, setDate] = useState(Array());
 
   const fetchQuestions =() => {
 
@@ -30,16 +31,19 @@ function Sam() {
       let Questions = Array();
       let Titles = Array();
       let Author = Array();
+      let Date = Array();
+      // let d = new Date();
       const dataResponse = response.data;
       for (let key in dataResponse){
         Questions.push(dataResponse[key]['question'])
         Titles.push(dataResponse[key]['question'].slice(0, 100))
-        Author.push(dataResponse[key['username']])
+        Author.push(dataResponse[key]['username'])
+        Date.push(dataResponse[key]['timestamp'].slice(0, 10))
       }
       setQuestions([...questions, ...Questions])
       setQuestionTitle([...questionsTitle, ...Titles])
       setAuthor([...author, ...Author])
-      console.log(author)
+      setDate([...date, ...Date])
     
     })
     .catch(error => {
@@ -52,7 +56,6 @@ function Sam() {
   async function postAnswer() {
     axios.defaults.headers = {
         'Authorization': `Token ${localStorage.getItem('token')}`,
-
     }
     const index = questions.findIndex((qs) => qs === currentQuestion.props.questionText) + 1;
     const data =  await axios.post('http://127.0.0.1:8000/api/score/' + index + '/', {
@@ -80,9 +83,8 @@ function Sam() {
   
   const singleQuestionHandler = (id) => {
     // On click on the question we get id and render the question to dom
-    console.log(author)
     let qs;
-    qs = <Question id={id} questionText={questions[id]} questionsTitle={questionsTitle[id]} author={author[id]} single/>
+    qs = <Question id={id} questionText={questions[id]} questionsTitle={questionsTitle[id]} author={author[id]} time={date[id]} single/>
     setCurrentQuestion(qs) // updating the state of currentquestion
     setShowGrade(false)
   }
