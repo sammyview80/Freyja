@@ -29,7 +29,6 @@ export const loginUser = (username, password) => (dispatch) => {
 }
 
 export const loginCheck = (token) => (dispatch) => {
-  console.log(token);
   if (token) {
     dispatch({
       type: USER_LOADED,
