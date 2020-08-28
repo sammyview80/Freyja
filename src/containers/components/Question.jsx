@@ -1,4 +1,5 @@
 import React, { useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import _ from 'lodash';
 
@@ -16,7 +17,7 @@ const Questions = ({ selectQuestion, getQuestions, fetchedQuestions }) => {
   const renderQuestions = () => {
     if (_.isEmpty(fetchedQuestions)) {
       return (
-        <span>Loading</span>
+        <span>Loading... (Maybe you need to <Link to='/login'>Login</Link>)</span>
       );
     } else {
       return (
@@ -24,7 +25,7 @@ const Questions = ({ selectQuestion, getQuestions, fetchedQuestions }) => {
           { fetchedQuestions.map(question => {
             return (
             <li
-              onClick={() => selectQuestion(question)}
+              onClick={() => selectQuestion(question.question)}
               key={uniqid()}
               className="list-group-item"
             >

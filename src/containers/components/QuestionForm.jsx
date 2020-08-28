@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import _ from 'lodash';
 
 import { evaluateAnswer } from '../../actions/selected';
 
@@ -12,13 +13,17 @@ const QuestionForm = ({ selectedQuestion }) => {
     dispatch(evaluateAnswer(answer))
   }
 
-  if (selectedQuestion) {
+  if (_.isEmpty(selectedQuestion)) {
     return (
+      <span>No Question Selected</span>
+    );
+  }
+  return (
       <div className="mt-4">
         QuestionForm
         <form onSubmit={analyze}>
           <div className="form-group">
-            <label>{`${selectedQuestion}`}</label>
+            <label>{`${selectedQuestion.selectedQuestion}`}</label>
             <textarea
               className="form-control"
               id="exampleFormControlTextarea1"
@@ -29,10 +34,6 @@ const QuestionForm = ({ selectedQuestion }) => {
           </div>
         </form>
       </div>
-    );
-  }
-  return (
-    <span>Not Selected</span>
   )
 };
 

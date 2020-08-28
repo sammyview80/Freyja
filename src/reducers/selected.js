@@ -1,13 +1,11 @@
 import { SELECT_QUESTION } from '../actions/types';
 
-const initalState = {
-  'selectedQuestion': '',
-};
+const initalState = {};
 
 export default function (state = initalState, action) {
   switch (action.type) {
     case SELECT_QUESTION:
-      return action.payload;
+      return { 'selectedQuestion': action.payload}
     default:
       return state;
   }
