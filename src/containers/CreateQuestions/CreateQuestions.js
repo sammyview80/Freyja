@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import classes from './CreateQuestions.module.css';
 
@@ -6,14 +6,12 @@ import classes from './CreateQuestions.module.css';
 const CreateQuestions =(props) => {
     return (
         <React.Fragment>
-            <div>
-                <h3>Add Essay</h3>
-            </div>
             <div className={classes.CreateQuestions}>
-                <textarea name="message" rows="10" cols="72" placeholder='Answer' onChange={props.changed} />
+                <h3>Add Essay</h3>
+                <textarea name="message" rows="10" cols="72" placeholder='Answer' onChange={props.typing} />
                 <br />
                 <br />
-                <button type='submit' onClick={props.onSubmit} className={'btn btn-primary'}>Submit Question</button>
+                <button type='submit' onClick={props.submit} className={'btn btn-primary'}>Submit Question</button>
             </div>
         </React.Fragment>
     )

@@ -12,7 +12,7 @@ const Nav = (props) => {
                 <div className={classes.item3}><NavLink  to="/create-questions">Add Essay</NavLink></div>
             </div>
             <div className={classes.OneElement}>
-                <div className={classes.item4}><NavLink  to="/login">Login</NavLink></div>
+                {props.auth ? <div className={classes.item4}><NavLink  to="/logout">Logout</NavLink></div>: <div className={classes.item4}><NavLink  to="/login">Login</NavLink></div>}
                 <div className={classes.item5}> <NavLink  to="/signup">signup</NavLink></div>
             </div>
         </div>
