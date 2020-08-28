@@ -6,6 +6,8 @@ import Questions from '../Questions/Questions';
 import Question from '../Questions/Question/Question';
 import Answer from '../Answer/Answer';
 import Grade from '../Grade/Grade';
+import Nav from '../Nav/Nav';
+import CreateQuestion from '../CreateQuestions/CreateQuestions';
 import { useEffect } from 'react';
 
 
@@ -52,16 +54,16 @@ function Sam() {
       setResponseGrade({...responseGrade, ...data})
       console.log(response.data);
       let remark;
-      if (response.data.predicted_score <= response.data.pass_score){
+      if (data.predicted_score <= data.pass_score){
         remark = 'Not so good!'
       }
-      else if (response.data.predicted_score >= response.data.pass_score){
+      else if (data.predicted_score >= data.pass_score){
         remark = 'Good job!'
       }
       else {
         remark = 'Prefect!'
       }
-      let resultGrade = <Grade grade={response.data.predicted_score} answer={answer} remark={remark} />
+      let resultGrade = <Grade grade={data.predicted_score} lowScore={data.low_score} fullScore={data.full_score} passScore={data.pass_score} answer={answer} remark={remark} />
       setGrade(resultGrade)
       setShowGrade(true)
     })
@@ -83,7 +85,7 @@ function Sam() {
   }
   return (
     <div className="App">
-      <nav></nav>
+      <Nav />
       <Questions questionArray={questionsTitle} singleQuestion={singleQuestionHandler}/>
       {currentQuestion}
       {currentQuestion ? <Answer changed={(event) => inputAnswerHandler(event)} gradeMe={postAnswer}/> : null}
