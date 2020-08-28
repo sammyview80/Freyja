@@ -6,7 +6,6 @@ import Questions from '../Questions/Questions';
 import Question from '../Questions/Question/Question';
 import Answer from '../Answer/Answer';
 import Grade from '../Grade/Grade';
-import Nav from '../Nav/Nav';
 import CreateQuestion from '../CreateQuestions/CreateQuestions';
 import { useEffect } from 'react';
 
@@ -85,7 +84,6 @@ function Sam() {
   }
   return (
     <div className="App">
-      <Nav />
       <Questions questionArray={questionsTitle} singleQuestion={singleQuestionHandler}/>
       {currentQuestion}
       {currentQuestion ? <Answer changed={(event) => inputAnswerHandler(event)} gradeMe={postAnswer}/> : null}
