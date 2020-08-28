@@ -3,7 +3,6 @@ import axios from 'axios';
 import { BASE_URL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS } from './types';
 
 export const loginUser = (username, password) => (dispatch) => {
-  console.log(username)
   const config = {
     header: {
       'Content-Type': 'application/json',
@@ -20,7 +19,7 @@ export const loginUser = (username, password) => (dispatch) => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
-      })
+      });
     }).catch(err => {
       console.log(err);
       dispatch({
@@ -29,8 +28,16 @@ export const loginUser = (username, password) => (dispatch) => {
     });
 }
 
+export const loginCheck = (token) => (dispatch) => {
+  if (token) {
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: token,
+    })
+  }
+}
+
 export const logout = () => (dispatch) => {
-  console.log('logout');
   dispatch({
     type: LOGOUT_SUCCESS
   })

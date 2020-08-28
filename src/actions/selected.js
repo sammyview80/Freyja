@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { SELECT_QUESTION } from './types';
 
 export const selectQuestion = question => {
