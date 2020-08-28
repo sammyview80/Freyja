@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { BASE_URL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS } from './types';
+import { BASE_URL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, USER_LOADED } from './types';
 
 export const loginUser = (username, password) => (dispatch) => {
   const config = {
@@ -29,9 +29,10 @@ export const loginUser = (username, password) => (dispatch) => {
 }
 
 export const loginCheck = (token) => (dispatch) => {
+  console.log(token);
   if (token) {
     dispatch({
-      type: LOGIN_SUCCESS,
+      type: USER_LOADED,
       payload: token,
     })
   }
