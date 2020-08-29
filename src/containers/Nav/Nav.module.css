@@ -57,3 +57,9 @@
     text-decoration: none;
     font-weight: bold;
 }
+
+.Nav div div :hover {
+    color: grey;
+    transition: all 0.3s ease-out;
+    
+}

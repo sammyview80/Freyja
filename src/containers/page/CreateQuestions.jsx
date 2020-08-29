@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import CreateQuestions from '../CreateQuestions/CreateQuestions';
+import Error from '../Error/Error';
+
 import axios from 'axios';
 
 const CreateQuestionsPage = (props) => {
     const [question, setQuestion] = useState();
     const [response, setResponse] = useState(false);
+    const [error , setError] = useState();
     let data;
     const onQuestions = (event) => {
         setQuestion(event.target.value)
@@ -35,11 +38,15 @@ const CreateQuestionsPage = (props) => {
         })
         const d = await axios.post("http://127.0.0.1:8000/api/question/create/", data)
         .then(response => setResponse(true))
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            setError(error)
+        })
     } 
     return (
         <div>
             {response ? <Redirect to='/sam' /> : null}
+            {error ? {error} : null}
             <CreateQuestions typing={(event) => onQuestions(event)} submit={onSubmit} />
         </div>
     )

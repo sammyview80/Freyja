@@ -1,4 +1,5 @@
 .Question {
+    padding-bottom: 2rem;
     font-size: 1rem;
     cursor: pointer;
 }
@@ -22,4 +23,11 @@ p{
 }
 .Essay {
     font-weight: bold;
+}
+.QuestionItem button {
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    margin: auto;
+    vertical-align: middle;
 }

@@ -23,6 +23,7 @@ function Sam() {
   const [responseGrade, setResponseGrade] = useState(Object());
   const [author, setAuthor] = useState(Array());
   const [date, setDate] = useState(Array());
+  const [ids, setIds] = useState(Array());
 
   const fetchQuestions =() => {
 
@@ -32,6 +33,7 @@ function Sam() {
       let Titles = Array();
       let Author = Array();
       let Date = Array();
+      let Id = Array();
       // let d = new Date();
       const dataResponse = response.data;
       for (let key in dataResponse){
@@ -39,11 +41,13 @@ function Sam() {
         Titles.push(dataResponse[key]['question'].slice(0, 100))
         Author.push(dataResponse[key]['username'])
         Date.push(dataResponse[key]['timestamp'].slice(0, 10))
+        Id.push(dataResponse[key]['id'])
       }
-      setQuestions([...questions, ...Questions])
-      setQuestionTitle([...questionsTitle, ...Titles])
-      setAuthor([...author, ...Author])
-      setDate([...date, ...Date])
+      setQuestions([...Questions])
+      setQuestionTitle([...Titles])
+      setAuthor([...Author])
+      setDate([...Date])
+      setIds([...Id])
     
     })
     .catch(error => {
@@ -93,9 +97,23 @@ function Sam() {
     let inputAnswer = event.target.value;
     setAnswer(inputAnswer);
   }
+  async function deleteQuestionHandler(id) {
+    axios.defaults.headers = {
+      'Authorization': `Token ${localStorage.getItem('token')}`,
+    }
+    const index = ids[id];
+    await axios.delete('http://127.0.0.1:8000/api/question/delete/'+index + '/')
+    .then(response => {
+      console.log(response);
+      window.location.reload(false);
+    })
+    .catch(error => console.log(error))
+  }
   return (
     <div className="App">
-      <Questions questionArray={questionsTitle} singleQuestion={singleQuestionHandler}/>
+      <div>
+        <Questions questionArray={questionsTitle} singleQuestion={singleQuestionHandler} deleteQuestion={deleteQuestionHandler}/>
+      </div>
       {currentQuestion}
       {currentQuestion ? <Answer changed={(event) => inputAnswerHandler(event)} gradeMe={postAnswer}/> : null}
       {showGrade ? grade: null}
