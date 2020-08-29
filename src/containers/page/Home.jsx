@@ -1,13 +1,10 @@
 import React from 'react';
-import Questions from '../components/Question';
+import Home from '../Home/Home';
 
-const Home = () => {
+const HomePage = (props) => {
   return (
-    <div>
-      <h1>Home</h1>
-      <Questions />
-    </div>
-  );
-};
+    <Home />
+  )
+}
 
-export default Home;
+export default HomePage;

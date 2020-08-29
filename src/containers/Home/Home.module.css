@@ -1,0 +1,23 @@
+.Home {
+    margin: 1rem 0 2rem;
+    min-height: 600px;
+    padding: 2rem 10rem 2rem 10rem;
+    box-sizing: border-box;
+    border: 5px solid grey;
+    border-radius: 50px;
+    box-shadow: 0.5rem 0.7rem gray;
+    text-align: center;
+
+}
+.Home p {
+    text-align: center;
+}
+
+.Home h3 {
+    margin: 2rem 0 2rem 0;
+}
+
+
+.Home h4 {
+    margin: 0 0 2rem 0;
+}
