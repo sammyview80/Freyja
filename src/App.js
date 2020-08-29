@@ -28,6 +28,9 @@ const App = () => {
       setAuthenticated(true)
     }
   }, [])
+  const logoutHandler = () => {
+    setAuthenticated(false)
+  }
   return (
     <div className="container">
       <BrowserRouter>
@@ -37,7 +40,7 @@ const App = () => {
           <Route path="/sam" exact render={() => <Sam token={token} />} />
           <Route path="/signup" exact render={() => <Signup onSucess={(token) => onSignpupReponse(token)} />} />
           <Route path="/login" exact render={() => <Login onSucess={onLoginReponse} />} />
-          <Route path="/logout" exact component={Logout} />
+          <Route path="/logout" exact render={() => (<Logout logout={logoutHandler} />)} />
           <Route path="/create-questions" exact render={() => (<CreateQuestions changed={false} submit={false} />)} />
         </Switch>
       </BrowserRouter>      
