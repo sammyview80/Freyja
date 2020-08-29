@@ -61,7 +61,7 @@ function Sam() {
     axios.defaults.headers = {
         'Authorization': `Token ${localStorage.getItem('token')}`,
     }
-    const index = questions.findIndex((qs) => qs === currentQuestion.props.questionText) + 1;
+    const index = ids[questions.findIndex((qs) => qs === currentQuestion.props.questionText)];
     const data =  await axios.post('http://127.0.0.1:8000/api/score/' + index + '/', {
       answer: answer
     }).then(response => {

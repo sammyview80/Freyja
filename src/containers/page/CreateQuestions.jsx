@@ -34,7 +34,6 @@ const CreateQuestionsPage = (props) => {
                 min_score: 1, 
                 max_score: 12
             }
-            console.log(data)
         })
         const d = await axios.post("http://127.0.0.1:8000/api/question/create/", data)
         .then(response => setResponse(true))

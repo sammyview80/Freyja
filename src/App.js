@@ -30,6 +30,8 @@ const App = () => {
   }, [])
   const logoutHandler = () => {
     setAuthenticated(false)
+    window.location.reload(false);
+
   }
   return (
     <div className="container">
